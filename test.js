@@ -25,6 +25,16 @@ describe('Task Manager API Tests', () => {
         });
     });
 
+    // ── UI Page ──
+    describe('GET /ui', () => {
+        test('should return HTML page with 200 status', async () => {
+        const res = await request(app).get('/ui');
+        expect(res.statusCode).toBe(200);
+        expect(res.headers['content-type']).toMatch(/html/);
+        expect(res.text).toContain('Task Manager');
+    });
+});
+
     // ── Get All Tasks ──
     describe('GET /tasks', () => {
         test('should return all tasks with total count', async () => {
