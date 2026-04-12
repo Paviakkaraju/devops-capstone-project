@@ -50,7 +50,7 @@ app.get('/tasks', (req, res) => {
 
 // ── Get Task by ID ──
 app.get('/tasks/:id', (req, res) => {
-    const task = tasks.find(t => t.id === parseInt(req.params.id));
+    const task = tasks.find(t => t.id === Number.parseInt(req.params.id));
     if (!task) return res.status(404).json({ error: 'Task not found' });
     res.json(task);
 });
@@ -88,7 +88,7 @@ app.post('/tasks', (req, res) => {
 
 // ── Update Task ──
 app.put('/tasks/:id', (req, res) => {
-    const task = tasks.find(t => t.id === parseInt(req.params.id));
+    const task = tasks.find(t => t.id === Number.parseInt(req.params.id));
     if (!task) return res.status(404).json({ error: 'Task not found' });
 
     const validStatuses = ['pending', 'in-progress', 'completed'];
@@ -110,7 +110,7 @@ app.put('/tasks/:id', (req, res) => {
 
 // ── Delete Task ──
 app.delete('/tasks/:id', (req, res) => {
-    const index = tasks.findIndex(t => t.id === parseInt(req.params.id));
+    const index = tasks.findIndex(t => t.id === Number.parseInt(req.params.id));
     if (index === -1) return res.status(404).json({ error: 'Task not found' });
     const deleted = tasks.splice(index, 1);
     res.json({ message: 'Task deleted', task: deleted[0] });
