@@ -8,7 +8,7 @@ app.use(express.json());
 let tasks = [
     { id: 1, title: 'Setup Jenkins Pipeline', status: 'completed', priority: 'high' },
     { id: 2, title: 'Configure SonarQube', status: 'completed', priority: 'high' },
-    { id: 3, title: 'Deploy to AWS EC2', status: 'completed', priority: 'medium' },
+    { id: 3, title: 'Deploy to AWS EC2', status: 'pending', priority: 'medium' },
 ];
 let nextId = 4;
 
